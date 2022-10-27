@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\part;
-use App\Http\Requests\StorepartRequest;
-use App\Http\Requests\UpdatepartRequest;
+use App\Http\Requests\StoreFormsRequest;
+use App\Http\Requests\UpdateFormsRequest;
 
-class PartController extends Controller
+
+class FormsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,33 +17,19 @@ class PartController extends Controller
      */
     public function index()
     {
-        $part = DB::table('display_final_cam')
-        ->join('parts', 'parts.kode', '=', 'display_final_cam.webdisplay_webdisplay_final_cam_CODE_VALUE')
-        ->select('display_final_cam.*', 'parts.gambar')
-        ->orderBy('id', 'DESC')
-        ->first();
-        return view('part.index', [
-                'part' => $part,
-            ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $part = Part::all();
+        return view('part.form', [
+            'part' => $part,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorepartRequest  $request
+     * @param  \Illuminate\Http\StoreFormsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorepartRequest $request)
+    public function store(StoreFormsRequest $request)
     {
         $validatedData = $request->validate([
             'kode'               =>'required',
@@ -54,7 +40,7 @@ class PartController extends Controller
 
         $part = new Part;
         $part->kode = $validatedData['kode'];
-        $part->nama_gambar = $validatedData['nama_gambar'];
+        $part->namagambar = $validatedData['nama_gambar'];
         $part->gambar = $validatedData['gambar'];
         $part->model = $validatedData['model'];
 
@@ -75,24 +61,12 @@ class PartController extends Controller
         return view('part.edit', [
             'part' => $part,
         ]);
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\part  $part
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(part $part)
-    {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatepartRequest  $request
+     * @param  \App\Http\Requests\UpdateFormsRequest  $request
      * @param  \App\Models\part  $part
      * @return \Illuminate\Http\Response
      */
@@ -108,13 +82,13 @@ class PartController extends Controller
   
         $part = Part::find($request->get('id'));
         $part->kode = $validatedData['kode'];
-        $part->nama_gambar = $validatedData['nama_gambar'];
+        $part->namagambar = $validatedData['nama_gambar'];
         $part->gambar = $validatedData['gambar'];
         $part->model = $validatedData['model'];
 
         $part->save();
 
-        return redirect(route('part.index'));
+        return redirect(route('part.form'));
 
     }
 

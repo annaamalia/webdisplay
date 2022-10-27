@@ -33,8 +33,8 @@
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <tbody>
-                                    {{-- <img src="{{ asset('images/'. $part->gambar ) }}"> --}}
-                                    <img src="images/<?= $part['gambar'] ?>" class="image-center" style="width: 100%;">
+                                    <img src="{{ asset('images/' . $part->gambar) }}">
+                                    {{-- <img src="images/<?= $part['gambar'] ?>" class="image-center" style="width: 100%;"> --}}
                                 </tbody>
                             </table>
                         </div>

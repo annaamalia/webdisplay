@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PartController;
+use App\Http\Controllers\FormsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource('/', PartController::class);
+Route::resource('/form', FormsController::class);
