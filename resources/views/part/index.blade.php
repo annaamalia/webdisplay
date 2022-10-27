@@ -3,20 +3,21 @@
     <title>Web Display</title>
 </head>
 
-  <body>
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="#">Web Display</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mx-3 my-2">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-            </ul>
-          </div>
+            <a class="navbar-brand" href="#">Web Display</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mx-3 my-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -33,16 +34,16 @@
                             <table class="table table-bordered">
                                 <tbody>
                                     {{-- <img src="{{ asset('images/'. $part->gambar ) }}"> --}}
-                                    <img src="images/<?= $part["gambar"]; ?>" class="image-center" style="width: 100%;">
+                                    <img src="images/<?= $part['gambar'] ?>" class="image-center" style="width: 100%;">
                                 </tbody>
-                            </table>  
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-  </body>
+</body>
 
 
 @section('script')
