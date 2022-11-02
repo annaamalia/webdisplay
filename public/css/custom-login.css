@@ -1,0 +1,327 @@
+.custom-container {
+  padding: 10px;
+  background: #707070;
+  opacity: 100%;
+}
+
+.scan-container {
+  width: 100px;
+  height: 250px;
+}
+
+video #preview {
+  margin: 0px auto;
+  width: 250px;
+}
+
+.manual-input-label,
+.dark-font {
+  color: #414141;
+}
+
+.user-img img {
+  border-radius: 100%;
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bg-current-user {
+  background: #414141;
+  font-size: larger;
+}
+
+.bg-current-user button {
+  font-size: larger;
+}
+
+div#qrcode {
+  min-width: 128px;
+}
+
+.qr-img img {
+  width: 100%;
+}
+
+.user-line {
+  border-bottom: 1px solid #fff;
+  padding-top: 5px;
+}
+
+#manual-input {
+  background-color: #EEECEC;
+}
+
+.img-unlicensed {
+  background-color: #fff;
+  border-radius: 100%;
+  text-align: center;
+}
+
+.img-unlicensed img {
+  width: 50%;
+  margin: 2%;
+}
+
+.card.login-container {
+  height: fit-content;
+}
+
+.login-container #button-scan-id,
+.checkin-container #button-scan-id {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-width: 0;
+}
+
+.login-container #button-scan-id:focus,
+.login-container #button-manual-input:focus,
+.checkin-container #button-scan-id:focus,
+.checkin-container #button-manual-input:focus {
+  box-shadow: unset;
+}
+
+.login-container #button-scan-id.active,
+.login-container #button-manual-input.active,
+form[name=login] button#btn-submit-login,
+.checkin-container #button-scan-id.active,
+.checkin-container #button-manual-input.active,
+form[name=checkin] button#btn-submit-checkin {
+  background-color: #008AE6;
+  color: #fff;
+}
+
+.login-container #button-manual-input,
+.checkin-container #button-manual-input {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-width: 0;
+}
+
+.login-container #button-scan-id,
+.login-container #button-manual-input,
+.checkin-container #button-scan-id,
+.checkin-container #button-manual-input {
+  background-color: #fff;
+  color: #707070;
+  font-size: 2em;
+  font-weight: 500;
+}
+
+form[name=login],
+form[name=checkin] {
+  font-size: 1.5em;
+}
+
+form[name=login] button#btn-submit-login, 
+form[name=checkin] button#btn-submit-login {
+  font-size: 1.3em;
+}
+
+div#checkin-title,
+div#login-title {
+  background-color: #FF5D20;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+.row.user-img {
+  position: relative;
+  margin-bottom: -4rem !important;
+}
+
+.row#user-profile hr#icon-separator {
+  border-top-color: #fff;
+  margin-top: 2rem;
+}
+
+form[name=login] button#btn-submit-login:hover,
+form[name=login] button#btn-submit-login:active,
+form[name=checkin] button#btn-submit-login:hover,
+form[name=checkin] button#btn-submit-login:active {
+  background-color: #006eb8;
+}
+
+form[name=login] button#btn-submit-login span.spinner-border,
+form[name=checkin] button#btn-submit-login span.spinner-border {
+  border-width: .25rem;
+}
+
+form[name=login] input::-webkit-input-placeholder, /* Edge */
+form[name=login] input:-ms-input-placeholder, /* Internet Explorer 10-11 */
+form[name=login] input::placeholder,
+form[name=checkin] input::-webkit-input-placeholder, /* Edge */
+form[name=checkin] input:-ms-input-placeholder, /* Internet Explorer 10-11 */
+form[name=checkin] input::placeholder {
+  font-style: italic;
+  font-weight: 300;
+}
+
+form[name=login] input,
+form[name=checkin] input {
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  border-color: #999;
+  color: #414141;
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+}
+
+form[name=login] input:focus,
+form[name=login] input:active,
+form[name=checkin] input:focus,
+form[name=checkin] input:active {
+  border-width: 0 0 1px 0;
+  border-color: #000;
+  color: #414141;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+form[name=login]input[type=number],
+form[name=checkin]input[type=number] {
+  -moz-appearance: textfield;
+}
+
+div#user-profile .btn-success2 {
+  color: #000;
+  background-color: #11FA00;
+  border-color: #11FA00;
+  text-transform: uppercase;
+}
+
+div#user-profile .btn-danger2 {
+  color: #fff;
+  background-color: #C80000;
+  border-color: #C80000;
+  text-transform: uppercase;
+}
+
+div#form-container {
+  height: 400px;
+}
+
+div#attendance-log-container {
+  background-color: #FF006F;
+  color: #fff;
+  position: absolute;
+  bottom: -10px;
+  left: 5px;
+  margin-bottom: 20px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+div#attendance-log-container:after {
+  content: "___";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  color: #FF006F;
+  background-color: #FF006F;
+  transform-origin: bottom left;
+  -ms-transform: skew(-30deg, 0deg);
+  -webkit-transform: skew(-30deg, 0deg);
+  transform: skew(-30deg, 0deg);
+}
+
+div#attendance-log-container a {
+  font-size: 1.5em;
+}
+
+#bg-camera-default img {
+  width: 200px;
+}
+
+.login-container div#line-info,
+.checkin-container div#line-info {
+  background-color: #FF5D20;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: x-large;
+  font-weight: 900;
+}
+
+div#login-info-container,
+div#checkin-info-container {
+  background-color: #FF006F;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+div#login-info-container label,
+div#checkin-info-container label {
+  font-size: 1.5rem;
+}
+
+a#btn-attendance-log {
+  cursor: unset;
+}
+
+.login-container p#user-name,
+.login-container p#user-nik,
+.checkin-container p#user-name,
+.checkin-container p#user-nik {
+  font-size: 1.2em;
+}
+
+div#user-profile label#login-status {
+  font-size: 1.25em;
+}
+
+@media screen and (max-width: 962px) {
+  .login-container #button-scan-id,
+  .login-container #button-manual-input,
+  .checkin-container #button-scan-id,
+  .checkin-container #button-manual-input {
+    background-color: #fff;
+    color: #707070;
+    font-size: 1.5em;
+    font-weight: 500;
+  }
+
+  form[name=login],
+  form[name=checkin] {
+    font-size: 1.2em;
+  }
+
+  form[name=login] button#btn-submit-login, 
+  form[name=checkin] button#btn-submit-login {
+    font-size: 1em;
+  }
+
+  div#checkin-title,
+  div#login-title {
+    background-color: #FF5D20;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-size: 1em;
+    font-weight: 900;
+  }
+
+  .login-container p#user-name,
+  .login-container p#user-nik,
+  .checkin-container p#user-name,
+  .checkin-container p#user-nik {
+    font-size: 1em;
+  }
+
+  div#user-profile label#login-status {
+    font-size: .9em;
+  }
+
+  div#attendance-log-container a {
+    font-size: 1em;
+  }
+}

@@ -20,4 +20,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource('/', PartController::class);
-Route::resource('/form', FormsController::class);
+
+Route::get('/form', [FormsController::class, 'form']);
+Route::resource('/edit', FormsController::class);

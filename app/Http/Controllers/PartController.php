@@ -19,7 +19,7 @@ class PartController extends Controller
     {
         $part = DB::table('display_final_cam')
         ->join('parts', 'parts.kode', '=', 'display_final_cam.webdisplay_webdisplay_final_cam_CODE_VALUE')
-        ->select('display_final_cam.*', 'parts.gambar')
+        ->select('display_final_cam.*', 'parts.gambar', 'parts.model')
         ->orderBy('id', 'DESC')
         ->first();
         return view('part.index', [
@@ -43,25 +43,25 @@ class PartController extends Controller
      * @param  \App\Http\Requests\StorepartRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorepartRequest $request)
-    {
-        $validatedData = $request->validate([
-            'kode'               =>'required',
-            'nama_gambar'               =>'required',
-            'gambar'               =>'required',
-            'model'               =>'required',
-        ]);
+    // public function store(StorepartRequest $request)
+    // {
+    //     $validatedData = $request->validate([
+    //         'kode'               =>'required',
+    //         'nama_gambar'               =>'required',
+    //         'gambar'               =>'required',
+    //         'model'               =>'required',
+    //     ]);
 
-        $part = new Part;
-        $part->kode = $validatedData['kode'];
-        $part->nama_gambar = $validatedData['nama_gambar'];
-        $part->gambar = $validatedData['gambar'];
-        $part->model = $validatedData['model'];
+    //     $part = new Part;
+    //     $part->kode = $validatedData['kode'];
+    //     $part->nama_gambar = $validatedData['nama_gambar'];
+    //     $part->gambar = $validatedData['gambar'];
+    //     $part->model = $validatedData['model'];
 
-        $part->save();
+    //     $part->save();
 
-        return redirect()->back();
-    }
+    //     return redirect()->back();
+    // }
 
     /**
      * Display the specified resource.

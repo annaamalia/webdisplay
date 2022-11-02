@@ -32,15 +32,23 @@ class FormsController extends Controller
     public function store(StoreFormsRequest $request)
     {
         $validatedData = $request->validate([
-            'kode'               =>'required',
-            'nama_gambar'               =>'required',
-            'gambar'               =>'required',
+            'kode'                =>'required',
+            'namagambar'          =>'required',
+            'gambar'              =>'image|file|max:4096',
             'model'               =>'required',
         ]);
 
+        if($request->file('gambar')) {
+            $validatedData['gambar'] = $request->file('gambar')->store('post-images'); 
+        }
+
+        // if($request->file('gambar')) {
+        //     $validatedData['gambar'] = $request->file('gambar')->storeAs('post-images', $validatedData['gambar']); 
+        // }
+
         $part = new Part;
         $part->kode = $validatedData['kode'];
-        $part->namagambar = $validatedData['nama_gambar'];
+        $part->namagambar = $validatedData['namagambar'];
         $part->gambar = $validatedData['gambar'];
         $part->model = $validatedData['model'];
 
@@ -57,7 +65,7 @@ class FormsController extends Controller
      */
     public function show(Request $request)
     {
-        $part = Part::all();
+        $part = Part::find($request->get('id'));
         return view('part.edit', [
             'part' => $part,
         ]);
@@ -70,11 +78,11 @@ class FormsController extends Controller
      * @param  \App\Models\part  $part
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UpdateFormsRequest $request, Part $part)
     {
         $validatedData = $request->validate([
             'kode'               =>'required',
-            'nama_gambar'               =>'required',
+            'namagambar'               =>'required',
             'gambar'               =>'required',
             'model'               =>'required',
 
@@ -82,7 +90,7 @@ class FormsController extends Controller
   
         $part = Part::find($request->get('id'));
         $part->kode = $validatedData['kode'];
-        $part->namagambar = $validatedData['nama_gambar'];
+        $part->namagambar = $validatedData['namagambar'];
         $part->gambar = $validatedData['gambar'];
         $part->model = $validatedData['model'];
 
