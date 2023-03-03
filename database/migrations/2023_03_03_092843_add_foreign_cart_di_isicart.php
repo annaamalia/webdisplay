@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('isi_cart', function (Blueprint $table) {
             $table->unsignedInteger('cart_id');
-            $table->foreignId('cart_id')->constrained('cart')->onDelete('cascade');
+            $table->foreignId('cart_id')->constrained('cart')->cascadeOnDelete();
         });
     }
 
