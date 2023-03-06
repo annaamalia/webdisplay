@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('program_donatur', function (Blueprint $table) {
-            $table->unsignedInteger('invoice_id');
             $table->foreignId('invoice_id')->constrained('invoice');
         });
     }

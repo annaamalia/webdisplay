@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('kode_unik_transfer', function (Blueprint $table) {
             $table->integer('value')->primary();
-            $table->unsignedInteger('invoice_id');
             $table->foreignId('invoice_id')->constrained('invoice');
             $table->timestamps();
         });

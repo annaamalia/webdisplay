@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('invoice', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
             $table->foreignId('user_id')->constrained('users');
             $table->integer('value');
             $table->string('rekening');

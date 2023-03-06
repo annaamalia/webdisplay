@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('program_donatur', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('program_profile_id');
             $table->foreignId('program_profile_id')->constrained('program_profile');
             $table->integer('value');
             $table->text('comment')->nullable();

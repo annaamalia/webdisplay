@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('isi_cart', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('program_profile_id');
             $table->foreignId('program_profile_id')->constrained('program_profile')->cascadeOnDelete();
             $table->integer('value');
             $table->timestamps();
