@@ -12,11 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            IdxUserTypeTableTableSeeder::class,
+            UserTableSeeder::class,
+            IdxProgramCategoryTableSeeder::class,
+            //komentarin yang atas jika sebelumnya sudah pernah seed dan ingin menambahkan categorydua
+            IdxProgramCategoryDuaTableSeeder::class,
+        ]);
     }
 }
