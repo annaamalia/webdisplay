@@ -14,6 +14,8 @@ use App\Http\Controllers\SnapController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\VtdirectController;
 use App\Http\Controllers\VtwebController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +35,7 @@ Auth::routes();
 
 Route::group(['prefix' => 'adm', 'middleware' => 'auth'], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::resources([
-        'program' => [App\Http\Controllers\ProgramController::class],
-    ]);
+    Route::resource('program', App\Http\Controllers\ProgramController::class);
     Route::get('/invoice', [App\Http\Controllers\InvoiceController::class, 'index'])->name('invoice.index');
     Route::get('/konfirmasi/{id}', [App\Http\Controllers\InvoiceController::class, 'konfirmasi'])->name('invoice.konfirmasi');
     Route::get('/program/destroy/{id}', [App\Http\Controllers\ProgramController::class, 'destroy'])->name('program.destroy');
