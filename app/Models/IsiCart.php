@@ -11,6 +11,7 @@ class IsiCart extends Model
     use HasFactory;
 
     protected $table = 'isi_cart';
+
     protected $guarded = [];
 
     public function program(): belongsTo

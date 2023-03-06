@@ -9,8 +9,11 @@ class BufferTransfer extends Model
 {
     use HasFactory;
 
-    protected $table = "kode_unik_transfer";
+    protected $table = 'kode_unik_transfer';
+
     protected $guarded = [];
+
     protected $primaryKey = 'value';
+
     public $incrementing = false;
 }

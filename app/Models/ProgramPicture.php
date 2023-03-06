@@ -10,5 +10,6 @@ class ProgramPicture extends Model
     use HasFactory;
 
     protected $table = 'program_picture';
+
     protected $guarded = [];
 }

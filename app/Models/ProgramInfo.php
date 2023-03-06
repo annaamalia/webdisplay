@@ -12,6 +12,8 @@ class ProgramInfo extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
+
     protected $table = 'program_info';
+
     protected $guarded = [];
 }

@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class IdxProgramCategoryTableSeeder extends Seeder
 {
@@ -15,28 +14,28 @@ class IdxProgramCategoryTableSeeder extends Seeder
     {
         Category::create([
             'id' => 'A0',
-            'category_name' => 'Pembangunan'
+            'category_name' => 'Pembangunan',
         ]);
 
         Category::create([
             'id' => 'A1',
-            'category_name' => 'Gerakan'
+            'category_name' => 'Gerakan',
         ]);
 
         Category::create([
             'id' => 'A2',
-            'category_name' => 'Pemberdayaan'
+            'category_name' => 'Pemberdayaan',
         ]);
 
         Category::create([
             'id' => 'Z0',
-            'category_name' => 'Fakir Miskin'
+            'category_name' => 'Fakir Miskin',
         ]);
 
         Category::create([
             'id' => 'Z1',
             'category_name' => 'Fisabilillah',
-            'deskripsi' => 'Pejuang di Jalan Allah'
+            'deskripsi' => 'Pejuang di Jalan Allah',
         ]);
     }
 }

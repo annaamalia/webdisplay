@@ -12,7 +12,9 @@ class ProgramDonatur extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
+
     protected $table = 'program_donatur';
+
     protected $guarded = [];
 
     public const STATUS_KONFIRMASI = 1;

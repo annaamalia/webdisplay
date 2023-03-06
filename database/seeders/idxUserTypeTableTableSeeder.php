@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\UserType;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class idxUserTypeTableTableSeeder extends Seeder
@@ -15,17 +14,17 @@ class idxUserTypeTableTableSeeder extends Seeder
     {
         UserType::create([
             'id' => '1',
-            'type_name' => 'anonim'
+            'type_name' => 'anonim',
         ]);
 
         UserType::create([
             'id' => '2',
-            'type_name' => 'member'
+            'type_name' => 'member',
         ]);
 
         UserType::create([
             'id' => '3',
-            'type_name' => 'admin'
+            'type_name' => 'admin',
         ]);
     }
 }

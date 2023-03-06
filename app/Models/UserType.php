@@ -12,6 +12,8 @@ class UserType extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
+
     protected $table = 'idx_user_type';
+
     protected $guarded = [];
 }

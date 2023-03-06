@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\belongsTo;
 use Illuminate\Database\Eloquent\Relations\hasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Program extends Model
 {
@@ -14,10 +14,13 @@ class Program extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
+
     protected $table = 'program_profile';
+
     protected $guarded = [];
 
     public const STATUS_UNPUBLISH = 0;
+
     public const STATUS_PUBLISH = 1;
 
     public static function getZakat()
@@ -110,5 +113,4 @@ class Program extends Model
 
         return $sekarang->diffInDays($this->date_end);
     }
-
 }

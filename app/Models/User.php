@@ -14,7 +14,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     protected $dates = [
-        'deleted_at'
+        'deleted_at',
     ];
 
     protected $fillable = [

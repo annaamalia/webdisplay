@@ -9,14 +9,21 @@ use Illuminate\View\View;
 class Category extends Model
 {
     use HasFactory;
+
     protected $dates = ['deleted_at'];
+
     protected $table = 'idx_program_category';
+
     protected $guarded = [];
 
     public $incrementing = false;
+
     public const KODE_ZAKAT = 'Z';
+
     public const KODE_AMAL = 'A';
+
     public const AMAL = 'Amal';
+
     public const ZAKAT = 'Zakat';
 
     public static function getZakat()
@@ -47,8 +54,4 @@ class Category extends Model
 
          return $subjenis->category_name;
      }
-
-
-
-
 }

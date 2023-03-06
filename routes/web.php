@@ -1,21 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\ProgramDonaturController;
-use App\Http\Controllers\ProgramInfoController;
-use App\Http\Controllers\KalkulatorZakatController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\ConsumeApiController;
-use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\SnapController;
-use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\VtdirectController;
-use App\Http\Controllers\VtwebController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +76,3 @@ Route::get('/mailable', function () {
 
     return new App\Mail\InvoiceSelesaiMail($invoice);
 });
-
-
-
