@@ -26,7 +26,7 @@
             </div>
             <a href="{{route('umum.cart.show')}}" title="Kotak Amal">
                 <div class="kotakamal">
-                  {{CartHelper::getCart()->isiCart()->count()}}
+                  {{ App\Helpers\CartHelper::getCart()->isiCart()->count() }}
                 </div>
               </a>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">

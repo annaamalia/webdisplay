@@ -1,31 +1,31 @@
 @extends('layouts.app')
 @section('content')
 <section class="amal">
- 
+
       <div class="container-fluid">
         <div class="row">
 
           <div class="col-md-3">
             <div class="sidebar">
               <div class="sidebarlist">
-                
+
                 <form id="filterasli" method="GET">
                 <h4 class="text-center"><i class="fa fa-filter"></i> Filter</h4>
                 <button type="submit" class="btn btn-custom-inverse w-100">TERAPKAN</button>
-                <br><br>              
+                <br><br>
                 <a class="w-100" data-toggle="collapse" data-target="#asnaf" aria-expanded="true" aria-controls="asnaf">
                   <b>Kategori Program</b>
                   <i class="float-right fa" aria-hidden="true"></i>
                 </a>
                 <div id="asnaf" class="ml-4 collapse show">
-                  @foreach ($category as $item)   
+                  @foreach ($category as $item)
                   <div class="form-check">
                     <label class="form-check-label">
                     <input type="checkbox" name="category[]" value="{{$item->id}}" class="form-check-input" value="" @if(in_array($item->id, $filter['category'])) checked @endif >{{$item->category_name}}
                     </label>
                   </div>
                   @endforeach
-                </div>         
+                </div>
                 {{-- <a class="w-100" data-toggle="collapse" data-target="#wilayah" aria-expanded="true" aria-controls="wilayah">
                   <b>Wilayah</b>
                   <i class="float-right fa" aria-hidden="true"></i>
@@ -45,7 +45,7 @@
               <a href="#" title="">
                 <button class="btn btn-custom-inverse w-100" data-toggle="modal" data-target="#salurkanotomatis">SALURKAN OTOMATIS</button>
               </a>
-              
+
 
               <!-- Modal -->
               <div class="modal fade" id="salurkanotomatis" tabindex="-1" role="dialog" aria-labelledby="salurkanotomatisLabel" aria-hidden="true">
@@ -59,32 +59,32 @@
                     </div>
                     <form action="{{route('umum.salurkanotomatis')}}" method="post" accept-charset="utf-8" class="mt-4">
                     <div class="modal-body">
-                        @if(CartHelper::getJumlahWajibZakat() != 0) 
+                        @if(App\Helpers\CartHelper::getJumlahWajibZakat() != 0)
                       <h5>Zakat sucikan hartamu</h5>
                       Pilih lembaga amil
-                     
-                    
+
+
                         <div class="custom-control d-block custom-radio">
                           <input type="radio" class="custom-control-input" value="10" id="salurkan1" name="programid" required>
                           <label class="custom-control-label" for="salurkan1"><img src="assets/img/baznas.png"></label>
                         </div>
-                        
+
                         <div class="custom-control d-block custom-radio">
                           <input type="radio" class="custom-control-input" value="11" id="salurkan2" name="programid" required>
                           <label class="custom-control-label" for="salurkan2"><img src="assets/img/lazismu.png"></label>
                         </div>
-                        
+
                         <div class="custom-control d-block custom-radio">
                           <input type="radio" class="custom-control-input" value="3" id="salurkan3" name="programid" required>
                           <label class="custom-control-label" for="salurkan3"><img src="assets/img/dompetdhuafa.png"></label>
                         </div>
                       </fieldset>
                       @endif
-                                
+
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-custom" data-dismiss="modal">Tutup</button>
-                      @if(CartHelper::getJumlahWajibZakat() != 0)
+                      @if(App\Helpers\CartHelper::getJumlahWajibZakat() != 0)
                       <button type="submit" class="btn btn-custom-inverse">Selanjutnya</button>
                       @else
                     <a href="{{route('umum.kalkulatorzakat')}}" class="btn btn-custom-inverse"> Hitung Zakat Terlebih Dahulu</a>
@@ -109,14 +109,14 @@
             <h2>Sedekah Bawa Berkah Untuk Semua</h2>
             <h3>#SedekahBerkah</h3>
             @endif
-            
+
             <form id="filter" method="GET">
             <div class="d-flex">
             <div class="p-2">Daftar Program <b>1 - {{$jumlah}}</b> dari <b>{{$jumlah}}</b></div>
               <div class="ml-auto p-2">
                 <div class="col-auto">
                   <select id="selecfilter" class="custom-select mr-sm-2" name="urutkan">
-                
+
                    <option value="sesuai" selected>Paling sesuai</option>
                     <option value="terpopuler" @if($filter['urutkan'] == 'terpopuler') selected @endif >Terpopuler</option>
                     <option value="hampir_berhasil" @if($filter['urutkan'] == 'hampir_berhasil') selected @endif >Hampir berhasil</option>
@@ -127,7 +127,7 @@
               </div>
             </div>
             <br>
-            
+
             <div class="input-group">
                 <input type="text" class="form-control" name="cari" value="{{$filter['cari']}}" placeholder="Aku ingin beramal...">
               <div class="input-group-append">
@@ -139,7 +139,7 @@
           </form>
             <br>
 
-            @foreach ($programs as $program)   
+            @foreach ($programs as $program)
             <div class="col-lg-4">
               <div class="card">
                 <a href="{{route('umum.program.show', $program->id)}}" title="">
@@ -193,16 +193,16 @@
               </div>
             </div>
             @endforeach
-          
-           
+
+
 
           </div>
           <div class="container">
             <nav class="d-block w-100 mt-4">
                 <center>
-              {{$programs->appends(request()->input())->links()  }}             
+              {{$programs->appends(request()->input())->links()  }}
             </center>
-                
+
             </nav>
           </div>
         </div>
@@ -215,7 +215,7 @@
 <script>
   $('#filterasli').submit(function(e) {
     //e.preventDefault();
-    
+
     $('#filter :input').not(':submit, select').clone().hide().appendTo('#filterasli');
     $('<input />').attr('type', 'hidden')
           .attr('name', "urutkan")

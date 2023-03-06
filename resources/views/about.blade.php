@@ -26,13 +26,13 @@
             </div>
             <a href="{{route('umum.cart.show')}}" title="Kotak Amal">
               <div class="kotakamal">
-                {{CartHelper::getCart()->isiCart()->count()}}
+                {{ App\Helpers\CartHelper::getCart()->isiCart()->count() }}
               </div>
             </a>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
               <span class="icon-bar top-bar"></span>
               <span class="icon-bar middle-bar"></span>
-              <span class="icon-bar bottom-bar"></span>       
+              <span class="icon-bar bottom-bar"></span>
             </button>
 
         <div class="collapse navbar-collapse text-center" id="navbarsExample04">
@@ -57,7 +57,7 @@
 
       <div class="container pt-5 pb-3">
         <div class="row pt-5 pb-1">
-          <div class="col-md-12 mt-5"> 
+          <div class="col-md-12 mt-5">
             <img src="assets/img/logo-glow.png" class="gambartengah" style="max-width: 120px;">
             <p class="text-center mt-3 px24" style="color: #fff">
               AmalBox merupakan platform online yang memudahkan masyarakat untuk beramal melalui berbagai pilihan program yang terseleksi, serta menggalang amal untuk mewujudkan inisiatif dan project sosial dalam ekosistem Islam.
@@ -80,7 +80,7 @@
       					<h4>Potential of Zakat Indonesia Rp 286 Trillion <br>
       					Collected ZIS 2016 Rp 5 Trillion (Realization 1.7%) <br>
       					Distributed ZIS 2016 Rp 2.9 Trillion (Distribution 58.42%)</h4>
-      				</div>	
+      				</div>
       				<img src="assets/img/info2.png" class="w-100" alt="" style="max-width: 900px;margin: 0 auto;display: block;">
       			</div>
       		</div>
@@ -127,7 +127,7 @@
       							<td>=</td>
       							<td>Penerima Zakat, Infaq, Shadaqah</td>
       						</tr>
-      					</table>	
+      					</table>
       				</p>
       			</div>
       		</div>
@@ -181,7 +181,7 @@
       	</div>
       </div>
 
-    
+
     <footer>
       <div class="footer-top">
         <div class="container">
@@ -209,14 +209,14 @@
               Copyright &copy; 2018 - Amalbox
             </div>
             <div class="ml-auto p2 footer-social">
-              <a href="http://facebook.com/amalboxorg" target="_blank"><i class="fa fa-facebook-f"></i></a> 
-              <a href="http://twitter.com/amalboxorg" target="_blank"><i class="fa fa-twitter"></i></a>  
-              <a href="http://instagram.com/amalboxorg" target="_blank"><i class="fa fa-instagram"></i></a> 
+              <a href="http://facebook.com/amalboxorg" target="_blank"><i class="fa fa-facebook-f"></i></a>
+              <a href="http://twitter.com/amalboxorg" target="_blank"><i class="fa fa-twitter"></i></a>
+              <a href="http://instagram.com/amalboxorg" target="_blank"><i class="fa fa-instagram"></i></a>
             </div>
           </div>
         </div>
       </div>
-    </footer> 
+    </footer>
 
 <a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up"></i></a>
 
