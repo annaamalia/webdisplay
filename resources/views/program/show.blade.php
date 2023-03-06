@@ -22,12 +22,12 @@
           <div class="carousel-inner">
               <div class="carousel-item active">
                   <img class="d-block w-100" src="{{url($program->gambar_cover)}}" alt="First slide">
-                </div> 
+                </div>
             @foreach ($program->images as $image)
             <div class="carousel-item ">
               <img class="d-block w-100" src="{{url($image->path)}}" alt="First slide">
-            </div>            
-            @endforeach        
+            </div>
+            @endforeach
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -57,22 +57,22 @@
               </div>
 
               <div class="tab-pane fade" id="nav-update" role="tabpanel" aria-labelledby="nav-update-tab">
-                @foreach ($program->programinfo()->orderby('created_at')->get() as $item)                    
+                @foreach ($program->programinfo()->orderby('created_at')->get() as $item)
                 <div class="updatecard">
                 <h3>{{$item->title}}</h3>
                 {{$item->created_at}}
                   <hr>
                   <br>
                   {!!$item->detail!!}
-                </div>   
-                @endforeach         
+                </div>
+                @endforeach
               </div>
 
               <div class="tab-pane fade" id="nav-donatur" role="tabpanel" aria-labelledby="nav-donatur-tab">
-                
+
                 @foreach ($program->donasilunas as $donatur)
-                  
-            
+
+
                 <div class="d-flex path donatur">
                   <div class="p-2"><img src="{{url('assets/img/icon.png')}}"></div>
                   <div class="p-2">@if ($donatur->anonim == 1)
@@ -82,7 +82,7 @@
                   @endif  <br> <span>{{$donatur->created_at}}</span></div>
                   <div class="ml-auto p-2"><h5>Rp. {{number_format($donatur->value, 0,',','.')}}</h5></div>
                 </div>
-                
+
                 @endforeach
               </div>
               <div class="tab-pane fade" id="nav-pesan" role="tabpanel" aria-labelledby="nav-pesan-tab">
@@ -117,12 +117,12 @@
               <h4 class="text-center">{{$program->title}}</h4>
               <br>
               <center>
-              <span class="tag"><a href="#">{{$program->category->category_name}}</a></span>    
+              <span class="tag"><a href="#">{{$program->category->category_name}}</a></span>
               </center>
               <div class="zakatsekarang">
                 <form method="POST" id="formtambahdonasi" action="{{route('umum.tambahprogram')}}">
                   @csrf
-                  @if($program->category->jenis() != App\Models\Category::ZAKAT || CartHelper::getJumlahWajibZakat() != 0)
+                  @if($program->category->jenis() != App\Models\Category::ZAKAT || App\Helpers\CartHelper::getJumlahWajibZakat() != 0)
                   <fieldset >
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -133,29 +133,29 @@
                   </div>
                   <div class="slidecontainer">
                       @if ($program->category->jenis() == App\Models\Category::ZAKAT)
-                    <input type="range" min="0" max="{{CartHelper::getJumlahWajibZakat() - CartHelper::getJumlahZakatTersalurkan() + CartHelper::getJumlahTersalurkanByProgram($program)}}" value="0" class="slider" id="myRange">
-                   
-                    Jumlah zakat yang belum tersalurkan sebesar : Rp {{number_format(CartHelper::getJumlahWajibZakat() - CartHelper::getJumlahZakatTersalurkan() + CartHelper::getJumlahTersalurkanByProgram($program), 0,',','.')}}
+                    <input type="range" min="0" max="{{App\Helpers\CartHelper::getJumlahWajibZakat() - App\Helpers\CartHelper::getJumlahZakatTersalurkan() + App\Helpers\CartHelper::getJumlahTersalurkanByProgram($program)}}" value="0" class="slider" id="myRange">
+
+                    Jumlah zakat yang belum tersalurkan sebesar : Rp {{number_format(App\Helpers\CartHelper::getJumlahWajibZakat() - App\Helpers\CartHelper::getJumlahZakatTersalurkan() + App\Helpers\CartHelper::getJumlahTersalurkanByProgram($program), 0,',','.')}}
                     @endif
-                    @if(CartHelper::getJumlahTersalurkanByProgram($program)) 
-                    <br>Yang akan tersalurkan pada program ini : {{number_format(CartHelper::getJumlahTersalurkanByProgram($program))}}
+                    @if(App\Helpers\CartHelper::getJumlahTersalurkanByProgram($program))
+                    <br>Yang akan tersalurkan pada program ini : {{number_format(App\Helpers\CartHelper::getJumlahTersalurkanByProgram($program))}}
                     @endif
                   </div><br>
                   <textarea name="comment" class="form-control mb-3" rows="3" placeholder="Tulis doa/pesan/support-mu disini..."></textarea>
                   <button type="submit" class="btn btn-custom-inverse w-100">
                       @if ($program->category->jenis() == App\Models\Category::ZAKAT)
                       ZAKAT
-                      @else 
+                      @else
                       AMAL
                       @endif
                        SEKARANG
                   </button>
-                 
+
                   </fieldset>
                   @endif
-                
+
                 </form>
-                @if($program->category->jenis() == App\Models\Category::ZAKAT && CartHelper::getJumlahWajibZakat() == 0) 
+                @if($program->category->jenis() == App\Models\Category::ZAKAT && App\Helpers\CartHelper::getJumlahWajibZakat() == 0)
                 <a href="{{route('umum.kalkulatorzakat', ['id' => $program->id])}}"><button class="btn btn-custom-inverse w-100">Hitung Zakat</button></a>
                 @endif
               </div>
@@ -168,7 +168,7 @@
               <div class="d-flex">
                 <div class="p-2">dari Rp. {{$program->targetDonation(true)}} <br> {{$program->waktuTersisa()}} Hari lagi</div>
                 <div class="ml-auto p-2">{{$program->jumlahdonasipersen()}}%</div>
-              </div><br>  
+              </div><br>
               <div class="uploader d-flex justify-content-between">
                 <div class="p2 d-flex align-flex-center">
                   <span class="">
@@ -194,7 +194,7 @@
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{urlencode('mamat.id')}}" target="_blank"><img src="{{url('assets/img/facebook.png')}}"></a>
                 <a href="https://wa.me/?text={{urlencode(route('umum.program.show', [$program->id]))}}" target="_blank"><img src="{{url('assets/img/whatsapp.png')}}"></a>
                 <a href="https://twitter.com/share?text=share&url=https://mamat.id" target="_blank"><img src="{{url('assets/img/twitter.png')}}"></a>
-                <a href="https://social-plugins.line.me/lineit/share?url={{urlencode('https://mamat.id')}}" target="_blank"><img src="{{url('assets/img/line.png')}}"></a>              
+                <a href="https://social-plugins.line.me/lineit/share?url={{urlencode('https://mamat.id')}}" target="_blank"><img src="{{url('assets/img/line.png')}}"></a>
               </div>
             </div>
           </div>
@@ -203,8 +203,8 @@
         <div class="sidebar">
           <h4 class="text-center">{{$program->title}}</h4>
           <br>
-          <center>      
-          <span class="tag"><a href="#">{{$program->category->category_name}}</a></span>              
+          <center>
+          <span class="tag"><a href="#">{{$program->category->category_name}}</a></span>
           </center>
           <div class="zakatsekarang">
             <form method="POST" action="{{route('umum.tambahprogram')}}">
@@ -215,18 +215,18 @@
                 </div>
               <input type="hidden" name="id" value="{{$program->id}}">
                 <input type="number" class="form-control" id="value" name="jumlah">
-               
+
               </div>
               Dalam Ribuan
               <div class="slidecontainer">
                   @if ($program->category->jenis() == App\Models\Category::ZAKAT)
-                <input type="range" min="0" max="{{CartHelper::getJumlahWajibZakat() - CartHelper::getJumlahZakatTersalurkan()}}" value="0" class="slider" id="myRange">
+                <input type="range" min="0" max="{{App\Helpers\CartHelper::getJumlahWajibZakat() - App\Helpers\CartHelper::getJumlahZakatTersalurkan()}}" value="0" class="slider" id="myRange">
                 @endif
               </div><br>
               <button type="submit" class="btn btn-custom-inverse w-100">
                 @if ($program->category->jenis() == App\Models\Category::ZAKAT)
                 ZAKAT
-                @else 
+                @else
                 AMAL
                 @endif
                  SEKARANG
@@ -242,7 +242,7 @@
           <div class="d-flex">
             <div class="p-2">dari Rp. {{number_format($program->target_donation, 0,',','.')}} <br> {{$program->waktuTersisa()}} Hari lagi</div>
             <div class="ml-auto p-2">{{$program->jumlahdonasipersen()}}%</div>
-          </div><br>  
+          </div><br>
           <div class="uploader d-flex justify-content-between">
             <div class="p2 d-flex align-flex-center">
               <span class="">
@@ -307,12 +307,12 @@
       jumlahdonasi.set(this.value);
     }
     @endif
-     
+
       $('#formtambahdonasi').submit(function(e) {
         if(jumlahdonasi.get() < 10000) {
           $(".myAlert-minimal").show();
           setTimeout(function(){
-            $(".myAlert-minimal").hide(); 
+            $(".myAlert-minimal").hide();
           }, 4000);
           e.preventDefault();
         }
@@ -320,11 +320,11 @@
         else if((jumlahdonasi.get() % 1000) != 0) {
           $(".myAlert-ribuan").show();
           setTimeout(function(){
-            $(".myAlert-ribuan").hide(); 
+            $(".myAlert-ribuan").hide();
           }, 4000);
           e.preventDefault();
         }
-        
+
       })
 
     </script>
