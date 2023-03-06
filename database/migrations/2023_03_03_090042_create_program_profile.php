@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('program_profile', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('idx_program_category_id')->constrained('idx_program_category');
+            $table->string('idx_program_category_id');
+            $table->foreign('idx_program_category_id')->references('id')->on('idx_program_category');
             $table->string('title', 50);
             $table->longtext('detail');
             $table->bigInteger('target_donation');
