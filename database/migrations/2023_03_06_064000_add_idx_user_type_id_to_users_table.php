@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('program_picture', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('program_profile_id')->constrained('program_profile');
-            $table->text('path');
-            $table->text('detail');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('idx_user_type_id')
+                ->after('profile_picture')
+                ->constrained('idx_user_type');
         });
     }
 
@@ -25,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('program_picture');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('idx_user_type_id');
+        });
     }
 };

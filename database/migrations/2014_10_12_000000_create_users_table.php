@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('phone_number', 15);
             $table->string('name', 33);
             $table->text('profile_picture')->nullable();
-            $table->unsignedInteger('idx_user_type_id');
-            $table->foreignId('idx_user_type_id')->constrained('idx_user_type');
             $table->boolean('status');
             $table->rememberToken();
             $table->timestamps();

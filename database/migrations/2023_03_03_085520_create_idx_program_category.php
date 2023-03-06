@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('idx_program_category', function (Blueprint $table) {
-            $table->string('id', 5);
-            $table->primary('id');
+            $table->id();
             $table->string('category_name');
             $table->string('deskripsi')->nullable();
             $table->timestamps();
