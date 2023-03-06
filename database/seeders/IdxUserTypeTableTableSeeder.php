@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\UserType;
 use Illuminate\Database\Seeder;
 
-class idxUserTypeTableTableSeeder extends Seeder
+class IdxUserTypeTableTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
